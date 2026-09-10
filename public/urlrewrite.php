@@ -1,5 +1,13 @@
 <?php
 $arUrlRewrite=array (
+  5 =>
+  array (
+    'CONDITION' => '#^/courses/([^/]+)/?$#',
+    'RULE' => 'code=$1',
+    'ID' => 'bitrix-app:course.detail',
+    'PATH' => '/courses/detail.php',
+    'SORT' => 100,
+  ),
   1 => 
   array (
     'CONDITION' => '#^\\/?\\/mobileapp/jn\\/(.*)\\/.*#',

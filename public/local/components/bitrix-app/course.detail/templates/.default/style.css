@@ -1,0 +1,31 @@
+.course-detail {
+    max-width: 720px;
+    padding: 12px 0 32px;
+}
+
+.course-detail__back {
+    display: inline-block;
+    margin-bottom: 28px;
+}
+
+.course-detail__level {
+    color: #2374b9;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.course-detail h1 {
+    margin: 8px 0 12px;
+}
+
+.course-detail__duration {
+    color: #5c6b78;
+    font-weight: 700;
+}
+
+.course-detail__description {
+    margin-top: 28px;
+    font-size: 17px;
+    line-height: 1.65;
+}
