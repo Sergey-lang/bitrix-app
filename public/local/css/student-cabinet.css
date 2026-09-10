@@ -4,9 +4,9 @@ body:has(.student-cabinet) {
 
 body:has(.student-cabinet) #content {
     box-sizing: border-box;
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 48px 36px 72px;
+    max-width: none;
+    margin: 0;
+    padding: 0;
 }
 
 body:has(.student-cabinet) #banner,

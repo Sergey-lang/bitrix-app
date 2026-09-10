@@ -1,32 +1,32 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Для частных лиц", 
-		"services/fiz/", 
-		Array(), 
-		Array(), 
-		"" 
+		"Учебные курсы",
+		"courses/",
+		Array(),
+		Array(),
+		""
 	),
 	Array(
-		"Малому и среднему бизнесу", 
-		"services/smallbusiness/", 
-		Array(), 
-		Array(), 
-		"" 
+		"Личный кабинет",
+		"profile/",
+		Array(),
+		Array(),
+		""
 	),
 	Array(
-		"Для корпоративных клиентов", 
-		"services/corp/", 
-		Array(), 
-		Array(), 
-		"" 
+		"API контента",
+		"api/v1/courses/",
+		Array(),
+		Array(),
+		""
 	),
 	Array(
-		"Финансовым организациям", 
-		"services/financialorg/", 
-		Array(), 
-		Array(), 
-		"" 
+		"Админка Bitrix",
+		"bitrix/admin/",
+		Array(),
+		Array(),
+		""
 	)
 );
 ?>

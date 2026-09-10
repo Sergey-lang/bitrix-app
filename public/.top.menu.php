@@ -1,18 +1,18 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"О компании", 
-		"about/", 
-		Array(), 
-		Array(), 
-		"" 
+		"О портале",
+		"about/",
+		Array(),
+		Array(),
+		""
 	),
 	Array(
-		"Новости", 
-		"news/", 
-		Array(), 
-		Array(), 
-		"" 
+		"Личный кабинет",
+		"profile/",
+		Array(),
+		Array(),
+		""
 	),
 	Array(
 		"Курсы",
@@ -22,18 +22,18 @@ $aMenuLinks = Array(
 		""
 	),
 	Array(
-		"Услуги", 
-		"services/", 
-		Array(), 
-		Array(), 
-		"" 
+		"API контента",
+		"api/v1/courses/",
+		Array(),
+		Array(),
+		""
 	),
 	Array(
-		"Контакты", 
-		"contacts/", 
-		Array(), 
-		Array(), 
-		"" 
+		"Контакты",
+		"contacts/",
+		Array(),
+		Array(),
+		""
 	)
 );
 ?>
