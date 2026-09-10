@@ -25,6 +25,13 @@ if ($arResult['NOT_FOUND'] ?? false): ?>
             ['COURSE_CODE' => $arResult['ITEM']['CODE']],
             false
         );
+        $APPLICATION->SetAdditionalCSS('/local/components/bitrix-app/course.progress/templates/.default/style.css');
+        $APPLICATION->IncludeComponent(
+            'bitrix-app:course.progress',
+            '',
+            ['COURSE_CODE' => $arResult['ITEM']['CODE']],
+            false
+        );
         ?>
     </article>
 <?php endif; ?>

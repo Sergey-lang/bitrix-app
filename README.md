@@ -87,3 +87,10 @@ docker compose exec web php /tmp/seed_courses.php
 docker compose cp docker/seed_lessons.php web:/tmp/seed_lessons.php
 docker compose exec web php /tmp/seed_lessons.php
 ```
+
+Для отметок о прохождении уроков создаётся локальная таблица прогресса:
+
+```bash
+docker compose cp docker/seed_progress.php web:/tmp/seed_progress.php
+docker compose exec web php /tmp/seed_progress.php
+```
