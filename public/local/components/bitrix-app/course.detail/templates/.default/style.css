@@ -3,11 +3,17 @@
     padding: 4px 0 32px;
 }
 
-.course-detail__back {
-    display: inline-block;
+.course-detail__toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
     margin-bottom: 34px;
     font-size: 14px;
     font-weight: 700;
+}
+
+.course-detail__back {
+    display: inline-block;
 }
 
 .course-detail__level {

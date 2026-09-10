@@ -94,3 +94,5 @@ docker compose exec web php /tmp/seed_lessons.php
 docker compose cp docker/seed_progress.php web:/tmp/seed_progress.php
 docker compose exec web php /tmp/seed_progress.php
 ```
+
+Авторизованный пользователь может открыть личный кабинет по адресу `http://localhost:8080/profile/` и увидеть прогресс по всем курсам. Страница входа: `http://localhost:8080/auth.php`.

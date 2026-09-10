@@ -5,6 +5,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 ?>
 <section class="course-list" aria-labelledby="course-list-title">
     <header class="course-list__header">
+        <a class="course-list__account" href="/profile/">Личный кабинет →</a>
         <h1 id="course-list-title"><?=htmlspecialcharsbx($arResult['TITLE'])?></h1>
         <p><?=htmlspecialcharsbx($arResult['DESCRIPTION'])?></p>
     </header>

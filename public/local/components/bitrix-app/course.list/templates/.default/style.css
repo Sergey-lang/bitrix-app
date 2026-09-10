@@ -1,6 +1,15 @@
 .course-list__header {
+    position: relative;
     max-width: 680px;
     margin-bottom: 34px;
+}
+
+.course-list__account {
+    display: inline-block;
+    margin-bottom: 22px;
+    color: #3157d5;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .course-list__header h1 {

@@ -10,7 +10,10 @@ if ($arResult['NOT_FOUND'] ?? false): ?>
     </section>
 <?php else: ?>
     <article class="course-detail">
-        <a class="course-detail__back" href="/courses/">← Все курсы</a>
+        <div class="course-detail__toolbar">
+            <a class="course-detail__back" href="/courses/">← Все курсы</a>
+            <a href="/profile/">Личный кабинет →</a>
+        </div>
         <p class="course-detail__level"><?=htmlspecialcharsbx($arResult['ITEM']['LEVEL'])?></p>
         <h1><?=htmlspecialcharsbx($arResult['ITEM']['TITLE'])?></h1>
         <p class="course-detail__duration">Длительность: <?=htmlspecialcharsbx($arResult['ITEM']['DURATION'])?></p>
