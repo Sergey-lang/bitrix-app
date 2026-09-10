@@ -9,6 +9,15 @@ body:has(.student-cabinet) #content {
     padding: 48px 36px 72px;
 }
 
+body:has(.student-cabinet) #banner,
+body:has(.student-cabinet) #breadcrumb {
+    display: none;
+}
+
+body:has(.student-cabinet) #content-wrapper {
+    margin-top: 0;
+}
+
 .student-cabinet {
     max-width: 900px;
 }

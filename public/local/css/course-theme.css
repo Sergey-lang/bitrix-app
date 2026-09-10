@@ -11,6 +11,22 @@ body:has(.course-detail) #content {
     padding: 48px 36px 72px;
 }
 
+/* Убираем баннер и пустой хлебный блок старого шаблона над учебным контентом. */
+body:has(.course-list) #banner,
+body:has(.course-detail) #banner,
+body:has(.student-cabinet) #banner,
+body:has(.course-list) #breadcrumb,
+body:has(.course-detail) #breadcrumb,
+body:has(.student-cabinet) #breadcrumb {
+    display: none;
+}
+
+body:has(.course-list) #content-wrapper,
+body:has(.course-detail) #content-wrapper,
+body:has(.student-cabinet) #content-wrapper {
+    margin-top: 0;
+}
+
 body:has(.course-list) #content a,
 body:has(.course-detail) #content a {
     color: #3157d5;
