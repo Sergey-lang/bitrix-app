@@ -17,7 +17,6 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
                 <p><?=htmlspecialcharsbx($item['DESCRIPTION'])?></p>
                 <footer class="course-card__footer">
                     <span><?=htmlspecialcharsbx($item['DURATION'])?></span>
-                    <a href="/courses/<?=$item['CODE']?>/">Подробнее</a>
                 </footer>
             </article>
         <?php endforeach; ?>

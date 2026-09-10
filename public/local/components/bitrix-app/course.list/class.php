@@ -7,32 +7,45 @@ final class BitrixAppCourseListComponent extends CBitrixComponent
 {
     public function executeComponent(): void
     {
+        if (!CModule::IncludeModule('iblock')) {
+            $this->arResult = ['TITLE' => 'Курсы', 'DESCRIPTION' => '', 'ITEMS' => []];
+            $this->includeComponentTemplate();
+            return;
+        }
+
+        $iblock = CIBlock::GetList(
+            [],
+            ['TYPE' => 'content', 'CODE' => 'courses'],
+            false,
+            ['nTopCount' => 1],
+            ['ID']
+        )->Fetch();
+
+        $items = [];
+        if ($iblock) {
+            $result = CIBlockElement::GetList(
+                ['SORT' => 'ASC', 'ID' => 'ASC'],
+                ['IBLOCK_ID' => (int)$iblock['ID'], 'ACTIVE' => 'Y', 'CHECK_PERMISSIONS' => 'Y'],
+                false,
+                false,
+                ['ID', 'NAME', 'CODE', 'PREVIEW_TEXT', 'PROPERTY_LEVEL', 'PROPERTY_DURATION']
+            );
+
+            while ($item = $result->GetNext()) {
+                $items[] = [
+                    'CODE' => $item['CODE'],
+                    'TITLE' => $item['NAME'],
+                    'LEVEL' => $item['PROPERTY_LEVEL_VALUE'],
+                    'DURATION' => $item['PROPERTY_DURATION_VALUE'],
+                    'DESCRIPTION' => $item['PREVIEW_TEXT'],
+                ];
+            }
+        }
+
         $this->arResult = [
             'TITLE' => 'Курсы',
             'DESCRIPTION' => 'Практические курсы для изучения 1С-Битрикс.',
-            'ITEMS' => [
-                [
-                    'CODE' => 'bitrix-start',
-                    'TITLE' => 'Старт в 1С-Битрикс',
-                    'LEVEL' => 'Начальный',
-                    'DURATION' => '4 недели',
-                    'DESCRIPTION' => 'Структура проекта, административная панель и базовые настройки сайта.',
-                ],
-                [
-                    'CODE' => 'components',
-                    'TITLE' => 'Компоненты и шаблоны',
-                    'LEVEL' => 'Средний',
-                    'DURATION' => '6 недель',
-                    'DESCRIPTION' => 'Создание собственных компонентов, шаблонов и подключение CSS и JavaScript.',
-                ],
-                [
-                    'CODE' => 'iblocks',
-                    'TITLE' => 'Инфоблоки и ORM',
-                    'LEVEL' => 'Средний',
-                    'DURATION' => '5 недель',
-                    'DESCRIPTION' => 'Моделирование данных, инфоблоки, ORM и вывод динамического контента.',
-                ],
-            ],
+            'ITEMS' => $items,
         ];
 
         $this->includeComponentTemplate();
