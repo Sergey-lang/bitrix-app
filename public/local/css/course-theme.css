@@ -1,0 +1,30 @@
+body:has(.course-list),
+body:has(.course-detail) {
+    background: #f5f7fb;
+}
+
+body:has(.course-list) #content,
+body:has(.course-detail) #content {
+    box-sizing: border-box;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 48px 36px 72px;
+}
+
+body:has(.course-list) #content a,
+body:has(.course-detail) #content a {
+    color: #3157d5;
+    text-decoration: none;
+}
+
+body:has(.course-list) #content a:hover,
+body:has(.course-detail) #content a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+    body:has(.course-list) #content,
+    body:has(.course-detail) #content {
+        padding: 28px 18px 48px;
+    }
+}

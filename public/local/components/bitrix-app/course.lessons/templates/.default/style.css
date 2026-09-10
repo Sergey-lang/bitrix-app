@@ -1,23 +1,49 @@
 .course-lessons {
     margin-top: 36px;
-    border-top: 1px solid #dce4ec;
-    padding-top: 24px;
+    border-top: 1px solid #e4e8f1;
+    padding-top: 30px;
 }
 
 .course-lessons h2 {
     margin: 0 0 18px;
+    padding: 0;
+    list-style: none;
 }
 
 .course-lessons li {
-    margin: 0 0 18px;
-    padding-left: 8px;
+    position: relative;
+    margin: 0 0 12px;
+    padding: 18px 20px 18px 52px;
+    border: 1px solid #e4e8f1;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(32, 47, 84, .05);
+}
+
+.course-lessons li::before {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #e9edff;
+    color: #3157d5;
+    content: counter(list-item);
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 22px;
+    text-align: center;
 }
 
 .course-lessons h3 {
     margin: 0 0 4px;
+    color: #17213c;
     font-size: 17px;
 }
 
 .course-lessons p {
     margin: 0;
+    color: #667085;
+    line-height: 1.55;
 }
