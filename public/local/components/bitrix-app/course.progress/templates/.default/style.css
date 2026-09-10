@@ -1,0 +1,35 @@
+.course-progress {
+    margin-top: 36px;
+    border-top: 1px solid #dce4ec;
+    padding-top: 24px;
+}
+
+.course-progress__summary {
+    color: #2374b9;
+    font-weight: 700;
+}
+
+.course-progress__lessons {
+    padding-left: 24px;
+}
+
+.course-progress__lessons li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 0 12px;
+}
+
+.course-progress__lessons li.is-completed span {
+    color: #4c8a55;
+    text-decoration: line-through;
+}
+
+.course-progress button {
+    border: 0;
+    border-radius: 4px;
+    padding: 6px 10px;
+    background: #2374b9;
+    color: #fff;
+    cursor: pointer;
+}
