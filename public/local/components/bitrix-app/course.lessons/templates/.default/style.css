@@ -1,0 +1,23 @@
+.course-lessons {
+    margin-top: 36px;
+    border-top: 1px solid #dce4ec;
+    padding-top: 24px;
+}
+
+.course-lessons h2 {
+    margin: 0 0 18px;
+}
+
+.course-lessons li {
+    margin: 0 0 18px;
+    padding-left: 8px;
+}
+
+.course-lessons h3 {
+    margin: 0 0 4px;
+    font-size: 17px;
+}
+
+.course-lessons p {
+    margin: 0;
+}
