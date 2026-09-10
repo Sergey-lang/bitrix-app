@@ -1,0 +1,46 @@
+.course-list__header {
+    margin-bottom: 28px;
+}
+
+.course-list__header h1 {
+    margin: 0 0 8px;
+}
+
+.course-list__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.course-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 210px;
+    padding: 22px;
+    border: 1px solid #dce4ec;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(28, 48, 68, .06);
+}
+
+.course-card h2 {
+    margin: 4px 0 10px;
+    font-size: 20px;
+}
+
+.course-card__level {
+    margin: 0;
+    color: #2374b9;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.course-card__footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 18px;
+    font-size: 14px;
+}
