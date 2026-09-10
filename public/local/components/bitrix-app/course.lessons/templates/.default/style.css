@@ -42,6 +42,15 @@
     font-size: 17px;
 }
 
+.course-lessons h3 a {
+    color: #17213c;
+    text-decoration: none;
+}
+
+.course-lessons h3 a:hover {
+    color: #3157d5;
+}
+
 .course-lessons p {
     margin: 0;
     color: #667085;

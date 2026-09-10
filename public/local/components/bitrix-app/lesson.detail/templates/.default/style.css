@@ -1,0 +1,70 @@
+.lesson-detail {
+    max-width: 760px;
+    padding: 4px 0 48px;
+}
+
+.lesson-detail__toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 38px;
+    color: #667085;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.lesson-detail__eyebrow {
+    margin: 0 0 12px;
+    color: #3157d5;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.lesson-detail h1 {
+    margin: 0 0 20px;
+    color: #17213c;
+    font-size: clamp(32px, 5vw, 52px);
+    letter-spacing: -.045em;
+    line-height: 1.05;
+}
+
+.lesson-detail__text {
+    margin-bottom: 28px;
+    color: #475467;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.lesson-detail__notice {
+    color: #667085;
+}
+
+.lesson-detail__button {
+    display: inline-block;
+    border: 0;
+    border-radius: 9px;
+    padding: 11px 16px;
+    background: #3157d5;
+    color: #fff !important;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.lesson-detail__button:hover {
+    background: #2645b5;
+}
+
+.lesson-detail__complete {
+    display: inline-block;
+    margin: 0;
+    border-radius: 9px;
+    padding: 11px 16px;
+    background: #e7f6ed;
+    color: #28734b;
+    font-weight: 700;
+}
