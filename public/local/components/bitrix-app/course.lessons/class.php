@@ -33,11 +33,13 @@ final class BitrixAppCourseLessonsComponent extends CBitrixComponent
                         ],
                         false,
                         false,
-                        ['ID', 'NAME', 'PREVIEW_TEXT', 'PROPERTY_NUMBER']
+                        ['ID', 'NAME', 'CODE', 'PREVIEW_TEXT', 'PROPERTY_NUMBER']
                     );
 
                     while ($item = $result->GetNext()) {
                         $this->arResult['ITEMS'][] = [
+                            'ID' => (int)$item['ID'],
+                            'CODE' => $item['CODE'],
                             'TITLE' => $item['NAME'],
                             'DESCRIPTION' => $item['PREVIEW_TEXT'],
                             'NUMBER' => $item['PROPERTY_NUMBER_VALUE'],
