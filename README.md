@@ -80,3 +80,10 @@ docker compose exec web php /tmp/seed_courses.php
 ```
 
 Скрипт идемпотентен: существующие записи курсов повторно не создаются.
+
+Уроки хранятся в отдельном инфоблоке `Уроки` с кодом `lessons` и связаны с курсом свойством `COURSE`. Заполнить их на локальном стенде можно так:
+
+```bash
+docker compose cp docker/seed_lessons.php web:/tmp/seed_lessons.php
+docker compose exec web php /tmp/seed_lessons.php
+```

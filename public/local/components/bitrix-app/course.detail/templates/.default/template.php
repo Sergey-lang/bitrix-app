@@ -17,5 +17,14 @@ if ($arResult['NOT_FOUND'] ?? false): ?>
         <div class="course-detail__description">
             <?=htmlspecialcharsbx($arResult['ITEM']['DESCRIPTION'])?>
         </div>
+        <?php
+        $APPLICATION->SetAdditionalCSS('/local/components/bitrix-app/course.lessons/templates/.default/style.css');
+        $APPLICATION->IncludeComponent(
+            'bitrix-app:course.lessons',
+            '',
+            ['COURSE_CODE' => $arResult['ITEM']['CODE']],
+            false
+        );
+        ?>
     </article>
 <?php endif; ?>
