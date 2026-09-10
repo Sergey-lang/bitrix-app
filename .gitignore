@@ -1,0 +1,27 @@
+# Local tools and macOS
+.idea/
+.DS_Store
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+.bitrix.env
+/local/php_interface/dbconn.php
+
+# Bitrix core is installed separately
+/bitrix/
+/upload/
+/public/bitrix/
+/public/upload/
+/public/bitrixsetup.php
+/public/bitrixsetup.update
+/public/*.tar.gz
+/public/*.tar.gz.tmp
+/public/restore.php
+/public/local/php_interface/dbconn.php
+
+# Dependencies and runtime files
+/vendor/
+/node_modules/
+*.log
