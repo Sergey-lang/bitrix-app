@@ -67,3 +67,16 @@ docker compose logs --tail=100 web
 ## План обучения
 
 Шаблоны, компоненты, инфоблоки, роли, двуязычность, личный кабинет, API, конструктор страниц, медиабиблиотека и кеширование.
+
+## Учебный раздел «Курсы»
+
+Страница `http://localhost:8080/courses/` выводит данные из инфоблока `Курсы` с кодом `courses`. Компонент находится в `public/local/components/bitrix-app/course.list/`.
+
+При создании нового локального стенда можно заполнить инфоблок и тестовые записи скриптом:
+
+```bash
+docker compose cp docker/seed_courses.php web:/tmp/seed_courses.php
+docker compose exec web php /tmp/seed_courses.php
+```
+
+Скрипт идемпотентен: существующие записи курсов повторно не создаются.
