@@ -14,6 +14,7 @@ if ($arResult['NOT_FOUND'] ?? false): ?>
             <a class="course-detail__back" href="/courses/">← Все курсы</a>
             <a href="/profile/">Личный кабинет →</a>
         </div>
+        <div class="course-detail__language"><a href="?lang=ru">RU</a> · <a href="?lang=en">EN</a></div>
         <p class="course-detail__level"><?=htmlspecialcharsbx($arResult['ITEM']['LEVEL'])?></p>
         <h1><?=htmlspecialcharsbx($arResult['ITEM']['TITLE'])?></h1>
         <p class="course-detail__duration">Длительность: <?=htmlspecialcharsbx($arResult['ITEM']['DURATION'])?></p>
@@ -25,7 +26,7 @@ if ($arResult['NOT_FOUND'] ?? false): ?>
         $APPLICATION->IncludeComponent(
             'bitrix-app:course.lessons',
             '',
-            ['COURSE_CODE' => $arResult['ITEM']['CODE']],
+            ['COURSE_CODE' => $arResult['ITEM']['CODE'], 'LANGUAGE' => $arResult['LANGUAGE']],
             false
         );
         $APPLICATION->SetAdditionalCSS('/local/components/bitrix-app/course.progress/templates/.default/style.css');

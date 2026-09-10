@@ -8,7 +8,8 @@ final class BitrixAppCourseDetailComponent extends CBitrixComponent
     public function executeComponent(): void
     {
         $code = trim((string)($this->arParams['CODE'] ?? ''));
-        $this->arResult = ['ITEM' => null];
+        $language = strtolower((string)($_GET['lang'] ?? 'ru')) === 'en' ? 'en' : 'ru';
+        $this->arResult = ['ITEM' => null, 'LANGUAGE' => $language];
 
         if ($code !== '' && CModule::IncludeModule('iblock')) {
             $iblock = CIBlock::GetList(
@@ -30,16 +31,16 @@ final class BitrixAppCourseDetailComponent extends CBitrixComponent
                     ],
                     false,
                     ['nTopCount' => 1],
-                    ['ID', 'NAME', 'CODE', 'PREVIEW_TEXT', 'PROPERTY_LEVEL', 'PROPERTY_DURATION']
+                    ['ID', 'NAME', 'CODE', 'PREVIEW_TEXT', 'PROPERTY_LEVEL', 'PROPERTY_DURATION', 'PROPERTY_TITLE_EN', 'PROPERTY_DESCRIPTION_EN']
                 )->GetNext();
 
                 if ($item) {
                     $this->arResult['ITEM'] = [
                         'CODE' => $item['CODE'],
-                        'TITLE' => $item['NAME'],
+                        'TITLE' => $language === 'en' && $item['PROPERTY_TITLE_EN_VALUE'] ? $item['PROPERTY_TITLE_EN_VALUE'] : $item['NAME'],
                         'LEVEL' => $item['PROPERTY_LEVEL_VALUE'],
                         'DURATION' => $item['PROPERTY_DURATION_VALUE'],
-                        'DESCRIPTION' => $item['PREVIEW_TEXT'],
+                        'DESCRIPTION' => $language === 'en' && $item['PROPERTY_DESCRIPTION_EN_VALUE'] ? $item['PROPERTY_DESCRIPTION_EN_VALUE'] : $item['PREVIEW_TEXT'],
                     ];
                 }
             }

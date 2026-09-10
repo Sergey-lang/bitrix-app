@@ -64,6 +64,23 @@ docker compose logs --tail=100 web
 - [Установка дистрибутива и шаги мастера](https://docs.1c-bitrix.ru/pages/get-started/install-distr.html).
 - [Структура директорий](https://docs.1c-bitrix.ru/pages/get-started/directory-structure.html).
 
+## MVP-показ функционала
+
+Скрипт `docker/seed_mvp.php` добавляет английские поля к курсам и урокам и создаёт группу `Редакторы портала` с правом изменения учебного контента. Запуск:
+
+```bash
+docker compose cp docker/seed_mvp.php web:/tmp/seed_mvp.php
+docker compose exec web php /tmp/seed_mvp.php
+```
+
+После запуска:
+
+- публичный редакторский контур: `http://localhost:8080/bitrix/admin/` → **Контент** → **Курсы** или **Уроки**;
+- переключение языка курсов: `http://localhost:8080/courses/?lang=en`;
+- JSON API для мобильного клиента: `http://localhost:8080/api/v1/courses/?lang=en`.
+
+API возвращает курсы, уроки, ссылки и выбранный язык без HTML-обвязки. Собственные endpoint-компоненты и стили находятся в `/local/`, ядро Bitrix не изменяется.
+
 ## План обучения
 
 Шаблоны, компоненты, инфоблоки, роли, двуязычность, личный кабинет, API, конструктор страниц, медиабиблиотека и кеширование.

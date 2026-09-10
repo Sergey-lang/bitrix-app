@@ -2,7 +2,7 @@
 $arUrlRewrite=array (
   6 =>
   array (
-    'CONDITION' => '#^/courses/([^/]+)/lessons/([^/]+)/?$#',
+    'CONDITION' => '#^/courses/([^/]+)/lessons/([^/]+)/?(?:\?.*)?$#',
     'RULE' => 'course=$1&lesson=$2',
     'ID' => 'bitrix-app:lesson.detail',
     'PATH' => '/courses/lesson.php',
@@ -10,7 +10,7 @@ $arUrlRewrite=array (
   ),
   5 =>
   array (
-    'CONDITION' => '#^/courses/([^/]+)/?$#',
+    'CONDITION' => '#^/courses/([^/]+)/?(?:\?.*)?$#',
     'RULE' => 'code=$1',
     'ID' => 'bitrix-app:course.detail',
     'PATH' => '/courses/detail.php',

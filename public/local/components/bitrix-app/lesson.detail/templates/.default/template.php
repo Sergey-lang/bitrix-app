@@ -11,7 +11,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 <?php else: ?>
     <article class="lesson-detail">
         <div class="lesson-detail__toolbar">
-            <a href="/courses/<?=htmlspecialcharsbx($arResult['COURSE']['CODE'])?>/">← Все уроки курса</a>
+            <a href="/courses/<?=htmlspecialcharsbx($arResult['COURSE']['CODE'])?>/?lang=<?=htmlspecialcharsbx($arResult['LANGUAGE'])?>">← Все уроки курса</a>
             <span>Урок <?=htmlspecialcharsbx($arResult['LESSON']['NUMBER'])?></span>
         </div>
         <p class="lesson-detail__eyebrow"><?=htmlspecialcharsbx($arResult['COURSE']['TITLE'])?></p>

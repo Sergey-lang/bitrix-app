@@ -7,8 +7,9 @@ final class BitrixAppCourseListComponent extends CBitrixComponent
 {
     public function executeComponent(): void
     {
+        $language = strtolower((string)($_GET['lang'] ?? 'ru')) === 'en' ? 'en' : 'ru';
         if (!CModule::IncludeModule('iblock')) {
-            $this->arResult = ['TITLE' => 'Курсы', 'DESCRIPTION' => '', 'ITEMS' => []];
+            $this->arResult = ['TITLE' => 'Курсы', 'DESCRIPTION' => '', 'ITEMS' => [], 'LANGUAGE' => $language];
             $this->includeComponentTemplate();
             return;
         }
@@ -28,24 +29,25 @@ final class BitrixAppCourseListComponent extends CBitrixComponent
                 ['IBLOCK_ID' => (int)$iblock['ID'], 'ACTIVE' => 'Y', 'CHECK_PERMISSIONS' => 'Y'],
                 false,
                 false,
-                ['ID', 'NAME', 'CODE', 'PREVIEW_TEXT', 'PROPERTY_LEVEL', 'PROPERTY_DURATION']
+                ['ID', 'NAME', 'CODE', 'PREVIEW_TEXT', 'PROPERTY_LEVEL', 'PROPERTY_DURATION', 'PROPERTY_TITLE_EN', 'PROPERTY_DESCRIPTION_EN']
             );
 
             while ($item = $result->GetNext()) {
                 $items[] = [
                     'CODE' => $item['CODE'],
-                    'TITLE' => $item['NAME'],
+                    'TITLE' => $language === 'en' && $item['PROPERTY_TITLE_EN_VALUE'] ? $item['PROPERTY_TITLE_EN_VALUE'] : $item['NAME'],
                     'LEVEL' => $item['PROPERTY_LEVEL_VALUE'],
                     'DURATION' => $item['PROPERTY_DURATION_VALUE'],
-                    'DESCRIPTION' => $item['PREVIEW_TEXT'],
+                    'DESCRIPTION' => $language === 'en' && $item['PROPERTY_DESCRIPTION_EN_VALUE'] ? $item['PROPERTY_DESCRIPTION_EN_VALUE'] : $item['PREVIEW_TEXT'],
                 ];
             }
         }
 
         $this->arResult = [
             'TITLE' => 'Курсы',
-            'DESCRIPTION' => 'Практические курсы для изучения 1С-Битрикс.',
+            'DESCRIPTION' => $language === 'en' ? 'Practical courses for learning 1C-Bitrix.' : 'Практические курсы для изучения 1С-Битрикс.',
             'ITEMS' => $items,
+            'LANGUAGE' => $language,
         ];
 
         $this->includeComponentTemplate();

@@ -12,6 +12,11 @@
     font-weight: 700;
 }
 
+.course-detail__language {
+    margin: -20px 0 20px;
+    text-align: right;
+}
+
 .course-detail__back {
     display: inline-block;
 }

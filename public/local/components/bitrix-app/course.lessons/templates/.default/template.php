@@ -9,7 +9,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
         <ol>
             <?php foreach ($arResult['ITEMS'] as $item): ?>
                 <li>
-                    <h3><a href="/courses/<?=htmlspecialcharsbx($arParams['COURSE_CODE'])?>/lessons/<?=htmlspecialcharsbx($item['CODE'])?>/"><?=htmlspecialcharsbx($item['TITLE'])?></a></h3>
+                    <h3><a href="/courses/<?=htmlspecialcharsbx($arParams['COURSE_CODE'])?>/lessons/<?=htmlspecialcharsbx($item['CODE'])?>/?lang=<?=htmlspecialcharsbx($arParams['LANGUAGE'] ?? 'ru')?>"><?=htmlspecialcharsbx($item['TITLE'])?></a></h3>
                     <p><?=htmlspecialcharsbx($item['DESCRIPTION'])?></p>
                 </li>
             <?php endforeach; ?>

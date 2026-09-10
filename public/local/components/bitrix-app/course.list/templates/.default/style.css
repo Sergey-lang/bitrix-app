@@ -12,6 +12,20 @@
     font-weight: 700;
 }
 
+.course-list__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.course-list__language,
+.course-detail__language {
+    color: #98a2b3;
+    font-size: 13px;
+    font-weight: 700;
+}
+
 .course-list__header h1 {
     margin: 0 0 12px;
     color: #17213c;

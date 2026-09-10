@@ -9,6 +9,7 @@ final class BitrixAppCourseLessonsComponent extends CBitrixComponent
     {
         $this->arResult = ['ITEMS' => []];
         $code = trim((string)($this->arParams['COURSE_CODE'] ?? ''));
+        $language = strtolower((string)($this->arParams['LANGUAGE'] ?? 'ru')) === 'en' ? 'en' : 'ru';
 
         if ($code !== '' && CModule::IncludeModule('iblock')) {
             $course = CIBlock::GetList([], ['TYPE' => 'content', 'CODE' => 'courses'], false, ['nTopCount' => 1], ['ID'])->Fetch();
@@ -33,15 +34,15 @@ final class BitrixAppCourseLessonsComponent extends CBitrixComponent
                         ],
                         false,
                         false,
-                        ['ID', 'NAME', 'CODE', 'PREVIEW_TEXT', 'PROPERTY_NUMBER']
+                        ['ID', 'NAME', 'CODE', 'PREVIEW_TEXT', 'PROPERTY_NUMBER', 'PROPERTY_TITLE_EN', 'PROPERTY_DESCRIPTION_EN']
                     );
 
                     while ($item = $result->GetNext()) {
                         $this->arResult['ITEMS'][] = [
                             'ID' => (int)$item['ID'],
                             'CODE' => $item['CODE'],
-                            'TITLE' => $item['NAME'],
-                            'DESCRIPTION' => $item['PREVIEW_TEXT'],
+                            'TITLE' => $language === 'en' && $item['PROPERTY_TITLE_EN_VALUE'] ? $item['PROPERTY_TITLE_EN_VALUE'] : $item['NAME'],
+                            'DESCRIPTION' => $language === 'en' && $item['PROPERTY_DESCRIPTION_EN_VALUE'] ? $item['PROPERTY_DESCRIPTION_EN_VALUE'] : $item['PREVIEW_TEXT'],
                             'NUMBER' => $item['PROPERTY_NUMBER_VALUE'],
                         ];
                     }

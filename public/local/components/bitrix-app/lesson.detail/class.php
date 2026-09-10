@@ -15,6 +15,7 @@ final class BitrixAppLessonDetailComponent extends CBitrixComponent
             'COMPLETED' => false,
             'COURSE' => null,
             'LESSON' => null,
+            'LANGUAGE' => strtolower((string)($this->arParams['LANGUAGE'] ?? 'ru')) === 'en' ? 'en' : 'ru',
         ];
         $courseCode = trim((string)($this->arParams['COURSE_CODE'] ?? ''));
         $lessonCode = trim((string)($this->arParams['LESSON_CODE'] ?? ''));
@@ -34,7 +35,7 @@ final class BitrixAppLessonDetailComponent extends CBitrixComponent
         $course = CIBlockElement::GetList([], [
             'IBLOCK_ID' => (int)$courseIblock['ID'], '=CODE' => $courseCode,
             'ACTIVE' => 'Y', 'CHECK_PERMISSIONS' => 'Y',
-        ], false, ['nTopCount' => 1], ['ID', 'NAME', 'CODE'])->Fetch();
+        ], false, ['nTopCount' => 1], ['ID', 'NAME', 'CODE', 'PROPERTY_TITLE_EN'])->GetNext();
         if (!$course) {
             CHTTP::SetStatus('404 Not Found');
             $this->includeComponentTemplate();
@@ -44,7 +45,7 @@ final class BitrixAppLessonDetailComponent extends CBitrixComponent
         $lesson = CIBlockElement::GetList([], [
             'IBLOCK_ID' => (int)$lessonIblock['ID'], '=CODE' => $lessonCode,
             'PROPERTY_COURSE' => $course['ID'], 'ACTIVE' => 'Y', 'CHECK_PERMISSIONS' => 'Y',
-        ], false, ['nTopCount' => 1], ['ID', 'NAME', 'CODE', 'PREVIEW_TEXT', 'PROPERTY_NUMBER'])->GetNext();
+        ], false, ['nTopCount' => 1], ['ID', 'NAME', 'CODE', 'PREVIEW_TEXT', 'PROPERTY_NUMBER', 'PROPERTY_TITLE_EN', 'PROPERTY_DESCRIPTION_EN'])->GetNext();
         if (!$lesson) {
             CHTTP::SetStatus('404 Not Found');
             $this->includeComponentTemplate();
@@ -52,13 +53,13 @@ final class BitrixAppLessonDetailComponent extends CBitrixComponent
         }
 
         $this->arResult['NOT_FOUND'] = false;
-        $this->arResult['COURSE'] = ['TITLE' => $course['NAME'], 'CODE' => $course['CODE']];
+        $this->arResult['COURSE'] = ['TITLE' => $course['PROPERTY_TITLE_EN_VALUE'] && $this->arResult['LANGUAGE'] === 'en' ? $course['PROPERTY_TITLE_EN_VALUE'] : $course['NAME'], 'CODE' => $course['CODE']];
         $this->arResult['LESSON'] = [
             'ID' => (int)$lesson['ID'],
-            'TITLE' => $lesson['NAME'],
+            'TITLE' => $this->arResult['LANGUAGE'] === 'en' && $lesson['PROPERTY_TITLE_EN_VALUE'] ? $lesson['PROPERTY_TITLE_EN_VALUE'] : $lesson['NAME'],
             'CODE' => $lesson['CODE'],
             'NUMBER' => $lesson['PROPERTY_NUMBER_VALUE'],
-            'TEXT' => $lesson['PREVIEW_TEXT'],
+            'TEXT' => $this->arResult['LANGUAGE'] === 'en' && $lesson['PROPERTY_DESCRIPTION_EN_VALUE'] ? $lesson['PROPERTY_DESCRIPTION_EN_VALUE'] : $lesson['PREVIEW_TEXT'],
         ];
 
         if ($this->arResult['AUTHORIZED']) {
